@@ -1,5 +1,223 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: 400;
+  line-height: var(--line-height);
+  background-color: var(--background-color);
 }
+.header {
+  min-block-size: 100vh;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  background-image: var(--background-image);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.decorative-element {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  right: 0;
+  top: 0;
+  margin-top: clamp(10px, 0.46px + 2.54vw, 20px);
+  margin-right: clamp(19px, 9.46px + 2.54vw, 29px);
+  color: var(--accent-color);
+}
+
+.decorative-element::after {
+  display: block;
+  content: "";
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+.header__theme-menu {
+  justify-self: end;
+}
+.header__theme-menu-list {
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: clamp(75px, -36.64px + 29.77vw, 192px);
+  margin-right: clamp(10px, 0.46px + 2.54vw, 20px);
+}
+
+.header__theme-menu-button {
+  display: flex;
+  inline-size: 70px;
+  block-size: 26px;
+  color: var(--accent-color);
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+.header__theme-menu-button:not(.header__theme-menu-button_active):hover {
+  outline: 1px solid var(--accent-color-transparent);
+}
+
+.header__theme-menu-button:not(.header__theme-menu-button_active):focus {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--accent-color);
+}
+
+.header__title-first {
+  margin-left: clamp(0px, 19.54px + -2.54vw, 10px);
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color);
+  font-weight: 700;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--side-title-color);
+  block-size: fit-content;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.header__title-second {
+  inline-size: clamp(355px, 346.41px + 2.29vw, 364px);
+  margin-left: clamp(10px, 0.46px + 2.54vw, 20px);
+  margin-right: clamp(10px, 0.46px + 2.54vw, 20px);
+  margin-top: clamp(55px, -47.1px + 27.23vw, 162px);
+  justify-self: end;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(50px, 21.37px + 7.63vw, 80px);
+  margin-top: clamp(40px, 20.92px + 5.09vw, 60px);
+  padding: 0px clamp(10px, 0.46px + 2.54vw, 20px);
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.section__title {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 18px;
+}
+.section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.section__answer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section__answer-text {
+  color: var(--text-color);
+}
+
+.section__answer-link {
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--accent-color);
+}
+
+.section__answer-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section__answer-link:focus {
+  outline: 1px solid var(--text-color);
+}
+
+.section__answer-subtitle {
+  font-weight: 400;
+}
+.gallery {
+  gap: clamp(10px, 0.46px + 2.54vw, 20px);
+}
+
+.gallery img {
+  inline-size: 100%;
+}
+
+.footer {
+  min-block-size: 100vh;
+  inline-size: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.footer__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  color: var(--title-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  line-height: 83%;
+}
+
+@media (width >= 768px) and (width < 1024px) {
+  .header__title-second {
+    margin-top: calc(162px - (48 * ((100vw - 768px) / 256)));
+    inline-size: clamp(364px, -17.00px + 49.61vw, 491px);
+  }
+  .section__title {
+    inline-size: 236px;
+  }
+  .section {
+    grid-template-columns: auto 1fr;
+  }
+  .section-row {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .gallery img {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  .section__content-title {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .gallery img:first-of-type {
+    grid-column: 1 / 3;
+    grid-row: 2 / auto;
+  }
+  .gallery img:nth-of-type(2) {
+    object-fit: cover;
+    object-position: center;
+    grid-row: 2 / 4;
+  }
+
+  .gallery img:nth-of-type(3) {
+    grid-row: 3 / -1;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__title-second {
+    margin-top: 114px;
+    inline-size: 491px;
+  }
+}
+
+/* Закончил на галереи, размеры должны быть точными!
