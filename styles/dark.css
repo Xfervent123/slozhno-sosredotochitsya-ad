@@ -9,6 +9,6 @@
   --background-image: url(../images/cover-image-dark.png);
 }
 
-.theme-dark .page .decorative-element{
+.theme-dark .page .decorative-element {
   display: flex;
 }
