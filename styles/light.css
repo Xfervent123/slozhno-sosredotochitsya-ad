@@ -20,12 +20,11 @@
     --text-color: #353430;
     --background-image: url(../images/cover-image-light.png);
   }
-  
-  .decorative-element{
+  .decorative-element {
     display: none;
   }
 }
 
-.theme-light .page .decorative-element{
+.theme-light .page .decorative-element {
   display: none;
 }
